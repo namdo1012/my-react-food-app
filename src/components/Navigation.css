@@ -1,0 +1,28 @@
+.btn:hover,
+.btn:visited {
+	background-color: #fff;
+	color: #000;
+}
+
+.navigation {
+	background-color: transparent; ;
+	padding: 0;
+}
+
+.nav {
+	padding: 25px 0px 25px 0px;
+
+}
+
+.nav-item a {
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 300;
+	transition: all 0.3s;
+	text-decoration: none;
+}
+
+.nav-item a:hover,
+.nav-item a:active {
+	color: #529566;
+}

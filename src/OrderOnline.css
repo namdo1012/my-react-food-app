@@ -1,0 +1,27 @@
+.my-hero {
+	width: 100%;
+	background-color: #fff;
+	color: #529566;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-weight: 300;
+	font-size: 18px;
+	text-transform: uppercase;
+	border-bottom: .5px solid #529566;
+	margin-bottom: 0;
+}
+
+.main-page {
+	background-color: #fff;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+.recipe {
+	border-right: .5px solid #529566;
+	margin-top: 30px;
+}
+
+.order-list {
+	margin-top: 30px;
+}

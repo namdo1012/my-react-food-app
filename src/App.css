@@ -1,0 +1,11 @@
+* {
+	padding: 0;
+	margin : 0;
+	box-sizing: border-box;
+}
+
+#root {
+  background-image: url(./img/food-backgroud-img.jpg);
+  background-size: cover;
+}
+
