@@ -5,24 +5,24 @@ import Menu from './Menu';
 import Contact from './Contact';
 import About from './About';
 import SignIn from './SignIn';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    // <Router>
-    //   <div className="App">
-    //       <Navigation />
-    //       <Switch>
-    //         <Route path="/" exact component={Home} />
-    //         <Route path="/order" component={OrderOnline} />
-    //         <Route path="/menu" component={Menu} />
-    //         <Route path="/contact" component={Contact} />
-    //         <Route path="/about" component={About} /> 
-    //       </Switch>
-    //   </div>
-    // </Router>
-    <SignIn></SignIn>
+    <Router>
+      <div className="App">
+          <Navigation />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/order" component={OrderOnline} />
+            <Route path="/menu" component={Menu} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} /> 
+          </Switch>
+      </div>
+    </Router>
+    // <SignIn></SignIn>
 	);
 }
 
