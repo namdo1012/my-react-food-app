@@ -4,7 +4,8 @@ class Result extends React.Component {
 
 	render() {
 		const {result} = this.props;
-		let imgSrc = `https://spoonacular.com/recipeImages/${result.image}`;		
+		let imgSrc = `https://spoonacular.com/recipeImages/${result.image}`;	
+    if (result.title.length > 50) return null;	
 		return (
             <a className="results__link d-flex align-items-center" href={`#${result.id}`}>
               <figure className="results__fig">
