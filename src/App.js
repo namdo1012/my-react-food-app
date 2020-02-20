@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import OrderOnline from './OrderOnline';
 import SignIn from './SignIn';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from './components/SearchBar';
-import Results from './components/Results';
+import SearchBar from './components/SearchBar/SearchBar';
+import Results from './components/Results/Results';
 import {Container, Row, Col} from 'react-bootstrap';
 import './OrderOnline.css';
 
