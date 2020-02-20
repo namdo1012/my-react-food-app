@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from './components/Navigation/Navigation';
 import OrderOnline from './OrderOnline';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 
@@ -22,7 +23,7 @@ class App extends React.Component {
   render(){
     const {route} = this.state;
 
-    if (route === 'signin') {
+    if (route === 'signined') {
         return (
           <Router>
             <div className="App">
@@ -30,8 +31,7 @@ class App extends React.Component {
                 <Switch>
                   <Route  path="/" 
                           exact
-                          render={(props) => <Home {...props} onRouteChange={this.onRouteChange} />} 
-                  />
+                          render={(props) => <Home {...props} onRouteChange={this.onRouteChange} />} />
                   <Route path="/order" component={OrderOnline} />
                   <Route path="/menu" component={Menu} />
                   <Route path="/contact" component={Contact} />
@@ -42,8 +42,8 @@ class App extends React.Component {
       } 
       else {
           return (
-
-            <SignIn onRouteChange={this.onRouteChange}></SignIn>
+                // <SignUp></SignUp>
+                <SignIn onRouteChange={this.onRouteChange}></SignIn>  
           );
       }
     } 
