@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 class Navigation extends React.Component {
   render(){
     return (
-        <Row className="navigation justify-content-center">
+        <Row className="navigation justify-content-center text-dark">
         <Col lg={9}>
             <Nav justify className="justify-content-start align-items-center " activeKey="/home"> 
                 <Nav.Item className =""> 

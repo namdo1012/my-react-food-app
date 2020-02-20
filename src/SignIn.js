@@ -14,7 +14,7 @@ function SignIn(props) {
             <Card className="pt-4 pb-3" style={{ width: '21rem',top: '160px', left: '695px', borderRadius: '10px'}}>
                 <Card.Title className="text-center"> Sign In </Card.Title>
                 <Card.Body>
-                    <Form onSubmit={()=>{props.onRouteChange('signin')}}>
+                    <Form onSubmit={()=>{props.onRouteChange('home')}}>
                         <Form.Group>
                             <Form.Label>Username</Form.Label>
                             <Form.Control type="text" placeholder="Username" />
@@ -30,7 +30,9 @@ function SignIn(props) {
                                 <p className="mb-0 text-dark">Not registed?</p>
                                 <button type="button" 
                                         class="btn btn-outline-secondary border-0 pl-1 text-success"
-                                        >Create new account</button>
+                                        onClick={()=>props.onRouteChange('register')}>
+                                    Create new account
+                                </button>
                             </div>
 
                         </div>

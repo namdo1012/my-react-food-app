@@ -14,7 +14,7 @@ function SignUp(props) {
             <Card className="pt-4 pb-3" style={{ width: '21rem',top: '160px', left: '695px', borderRadius: '10px'}}>
                 <Card.Title className="text-center"> Sign up </Card.Title>
                 <Card.Body>
-                    <Form>
+                    <Form onSubmit={()=>{props.onRouteChange('home')}}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />
@@ -33,7 +33,7 @@ function SignUp(props) {
                         <div className="text-center d-flex flex-column">
                             <Button variant="success" type="submit" className="mt-3" style={{}}
                             >Login</Button>
-                            <button type="button" class="btn btn-outline-secondary border-0 pt-3">Create new account</button>
+
                         </div>
                     </Form>
                 </Card.Body>

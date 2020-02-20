@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      route: 'signifn',
+      route: 'signin',
     };
   }
   
@@ -23,16 +23,16 @@ class App extends React.Component {
   render(){
     const {route} = this.state;
 
-    if (route === 'signined') {
+    if (route === 'home') {
         return (
           <Router>
             <div className="App">
                 <Navigation />
                 <Switch>
+                  <Route path="/order" exact component={OrderOnline} />
                   <Route  path="/" 
-                          exact
                           render={(props) => <Home {...props} onRouteChange={this.onRouteChange} />} />
-                  <Route path="/order" component={OrderOnline} />
+
                   <Route path="/menu" component={Menu} />
                   <Route path="/contact" component={Contact} />
                   <Route path="/about" component={About} /> 
@@ -40,12 +40,8 @@ class App extends React.Component {
             </div>
           </Router>);
       } 
-      else {
-          return (
-                // <SignUp></SignUp>
-                <SignIn onRouteChange={this.onRouteChange}></SignIn>  
-          );
-      }
+      else if (route==='signin'){return <SignIn onRouteChange={this.onRouteChange}></SignIn>}
+      else {return <SignUp onRouteChange={this.onRouteChange}></SignUp>}
     } 
 }
 
@@ -53,7 +49,7 @@ const Home = (props) => {
   return (
     <div>
       <h1> Home page </h1>
-      <button onClick={()=>props.onRouteChange('signfin')}> Sign out</button>
+      <button onClick={()=>props.onRouteChange('signin')}> Sign out</button>
     </div>
   )
 };
