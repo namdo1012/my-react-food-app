@@ -35,7 +35,7 @@ class App extends React.Component {
                   <Route path="/menu" component={Menu} />
                   <Route path="/contact" component={Contact} />
                   <Route path="/about" component={About} /> 
-                  <Redirect to="/order"/> {/* Redirect to order when sign in */}
+                  <Redirect to="/order"/> {/* Fail: Redirect to order when sign in */}
                 </Switch>
             </div>
           </Router>);

@@ -10,11 +10,11 @@ function SignUp(props) {
                 <img src={backgroundImg} alt="background-img" />
             </div>
 
-            <Container className="d-flex align-items-center" style={{height: '100vh'}}>
+            <Container className="pb-5 pt-3" style={{height: '100vh'}}>
             <div className="d-flex flex-column" style={{width: '21rem', top: '50px'}}>
-            <h1 className="logo">Maola</h1>
+            <h1 className="logo">Foodo</h1>
             <Card className="pt-4 pb-3">
-                <Card.Title className="text-center"> Sign up </Card.Title>
+                <Card.Title className="text-center text-uppercase"> Sign up </Card.Title>
                 <Card.Body>
                     <Form onSubmit={()=>{props.onRouteChange('home')}}>
                         <Form.Group controlId="formBasicEmail">
