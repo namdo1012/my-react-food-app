@@ -3,9 +3,8 @@ import Navigation from './components/Navigation/Navigation';
 import OrderOnline from './OrderOnline';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
-
 class App extends React.Component {
 
   constructor(props){
@@ -29,13 +28,14 @@ class App extends React.Component {
             <div className="App">
                 <Navigation />
                 <Switch>
-                  <Route path="/order" exact component={OrderOnline} />
-                  <Route  path="/" 
+                  <Route  path="/"
+                          exact 
                           render={(props) => <Home {...props} onRouteChange={this.onRouteChange} />} />
-
+                  <Route path="/order" component={OrderOnline} />
                   <Route path="/menu" component={Menu} />
                   <Route path="/contact" component={Contact} />
                   <Route path="/about" component={About} /> 
+                  <Redirect to="/order"/> {/* Redirect to order when sign in */}
                 </Switch>
             </div>
           </Router>);
