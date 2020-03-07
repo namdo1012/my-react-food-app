@@ -1,27 +1,21 @@
-.my-hero {
-	width: 100%;
-	background-color: #fff;
-	color: #529566;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	font-weight: 300;
-	font-size: 18px;
-	text-transform: uppercase;
-	border-bottom: .5px solid #529566;
-	margin-bottom: 0;
+.order-section {
+  background-image: url(./img/food-background-img.jpg);
+  /* background-image: linear-gradient(to right bottom, #a4f677, #edeeec); */
+  background-size: cover;
 }
 
 .main-page {
-	background-color: #fff;
-	margin-top: 10px;
-	border-radius: 10px;
+  background-color: #ffffff9e;
+  border-radius: 10px;
+  margin: 0 10vw;
+  margin-top: 15px;
 }
 
 .recipe {
-	border-right: .5px solid #529566;
-	margin-top: 30px;
+  border-right: 0.5px solid #529566;
+  margin-top: 30px;
 }
 
 .order-list {
-	margin-top: 30px;
+  margin-top: 30px;
 }

@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import backgroundImg from "./img/sign-in-background-1.jpg";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
 
 function SignIn({ setLogin, login, history }) {
-  const onClick = () => setLogin(true);
+  // const onClick = () => setLogin(true);
+  const goHomePage = () => {
+    setLogin(true);
+    history.replace("/home");
+  };
 
-  useEffect(() => {
-    if (login) {
-      history.replace("/order");
-    }
-  }, [login]);
+  // useEffect(() => {
+  //   if (login) {
+  //     history.push("/order");
+  //   }
+  // }, [login]);
 
   return (
     <div>
@@ -23,8 +27,6 @@ function SignIn({ setLogin, login, history }) {
           className="d-flex flex-column"
           style={{ width: "21rem", top: "50px" }}
         >
-          {" "}
-          {/*Need Fix: Top property not be affected */}
           <h1 className="logo">Foodo</h1>
           <Card
             className="pt-4 pb-3"
@@ -48,7 +50,7 @@ function SignIn({ setLogin, login, history }) {
                     variant="success"
                     type="submit"
                     className="w-100 mt-3 text-uppercase"
-                    onClick={onClick}
+                    onClick={goHomePage}
                   >
                     Login
                   </Button>
@@ -57,17 +59,6 @@ function SignIn({ setLogin, login, history }) {
                   <p className="mb-0 text-dark">Not registed?</p>
                   <Link to="/signup">Create new account</Link>
                 </Form.Group>
-                {/* <div className="text-center d-flex flex-column">
-									<Button variant="success" type="submit" className="mt-3 text-uppercase">Login</Button>
-									<div className="d-flex pt-3 align-items-center justify-content-center">
-											<p className="mb-0 text-dark">Not registed?</p>
-											<button type="button" 
-															class="btn btn-outline-secondary border-0 pl-1 text-success"
-															onClick={()=>props.onRouteChange('register')}>
-											Create new account
-											</button>
-									</div>
-							</div> */}
               </Form>
             </Card.Body>
           </Card>

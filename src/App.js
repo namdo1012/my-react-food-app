@@ -15,8 +15,7 @@ import SignUp from "./SignUp";
 
 class App extends React.Component {
   state = {
-    route: "signin",
-    login: false
+    isLogin: false
   };
 
   onRouteChange = route => {
@@ -25,13 +24,14 @@ class App extends React.Component {
     });
   };
 
-  setLogin = newVal =>
+  setLogin = newVal => {
     this.setState({
-      login: newVal
+      isLogin: newVal
     });
+  };
 
   render() {
-    const { route, login } = this.state;
+    const { isLogin } = this.state;
     const { setLogin } = this;
 
     return (
@@ -40,34 +40,39 @@ class App extends React.Component {
           <Switch>
             {/* <AuthRoute exact path="/" component={Home} /> */}
             {/* <AuthRoute path="/home" component={Home} /> */}
-            {/* <Route
-              path="/signin"
-              component={({ history }) => (
-                <SignIn history={history} setLogin={setLogin} login={login} />
-              )}
-            /> */}
             {/* <AuthRoute isLogin={login} path="/order" component={OrderOnline} /> */}
+
             <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Home} />
             <Route path="/gallery" component={Gallery} />
             <Route path="/order" component={OrderOnline} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
+            {/* history is passed through Router Component */}
+            <Route
+              path="/signin"
+              component={({ history }) => (
+                <SignIn
+                  history={history}
+                  setLogin={setLogin}
+                  isLogin={isLogin}
+                />
+              )}
+            />
+            <Route
+              path="/signup"
+              component={({ history }) => (
+                <SignUp
+                  history={history}
+                  setLogin={setLogin}
+                  isLogin={isLogin}
+                />
+              )}
+            />
           </Switch>
         </div>
       </Router>
     );
   }
 }
-
-// const Home = ({ history }) => {
-//   return (
-//     <div>
-//       <h1> Home page </h1>
-//       <button onClick={() => history.push("/signin")}> Sign out</button>
-//     </div>
-//   );
-// };
 
 const AuthRoute = ({ isLogin, ...rest }) => {
   return isLogin ? <Route {...rest} /> : <Redirect to="/signin" />;

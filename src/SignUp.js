@@ -3,7 +3,12 @@ import backgroundImg from "./img/sign-in-background-1.jpg";
 import { Form, Button, Card, Container } from "react-bootstrap";
 // import './SignIn.css';
 
-function SignUp(props) {
+function SignUp({ setLogin, login, history }) {
+  const goHomePage = () => {
+    setLogin(true);
+    history.replace("/home");
+  };
+
   return (
     <div>
       <div className="background">
@@ -25,11 +30,7 @@ function SignUp(props) {
               Sign up{" "}
             </Card.Title>
             <Card.Body>
-              <Form
-                onSubmit={() => {
-                  props.onRouteChange("home");
-                }}
-              >
+              <Form>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" />
@@ -46,7 +47,12 @@ function SignUp(props) {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <div className="text-center d-flex flex-column">
-                  <Button variant="success" type="submit" className="mt-3">
+                  <Button
+                    variant="success"
+                    type="submit"
+                    className="mt-3"
+                    onClick={goHomePage}
+                  >
                     Login
                   </Button>
                 </div>

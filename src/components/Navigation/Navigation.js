@@ -44,13 +44,13 @@ class Navigation extends React.Component {
               type="button"
               class="btn btn-outline-secondary  button-signin"
             >
-              Sign In
+              <Link to="/signin"> Sign In</Link>
             </button>
             <button
               type="button"
               class="btn btn-outline-secondary button-register"
             >
-              Register
+              <Link to="/signup"> Register</Link>
             </button>
           </div>
         </div>
