@@ -1,0 +1,58 @@
+.section-gallery {
+  padding: 50px 10px;
+}
+
+/* TITLE */
+h1 {
+  font-family: "Dancing Script";
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+/* GALLERY */
+.img__container {
+  width: 33.333333%;
+  padding: 0 5px;
+}
+
+.div-img {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.div-img img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  transition: all 0.2s;
+}
+
+.div-img img:hover {
+  transform: scale(1.1);
+}
+
+.img__like-button {
+  width: 40px;
+  height: 40x;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+  background-color: #e1dfdf;
+  padding: 5px 5px;
+}
+
+.img__like-icon {
+  font-size: 25px;
+  transform: translateY(3px);
+}
+
+.img__like-icon:hover {
+  font-size: 27px;
+  color: #f0aaaa;
+}

@@ -1,0 +1,64 @@
+/* HEADER_SECTION */
+.section-header {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("./img/hero-background.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* HERO */
+.hero {
+  margin-top: 8vh;
+}
+
+.hero p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+
+.hero__title {
+  font-family: "Dancing Script";
+  font-size: 140px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.hero__subtitle {
+  text-transform: uppercase;
+  font-size: 50px;
+  letter-spacing: 25px;
+}
+
+.hero__button {
+  margin-top: 8vh;
+}
+
+.hero__button-group {
+  text-align: center;
+}
+
+.hero__button-item {
+  padding: 10px 50px;
+  font-size: 16px;
+  font-style: italic;
+  color: white;
+  border: 2px solid white;
+  margin-right: 15px;
+  margin-left: 15px;
+  border-radius: 0;
+}
+
+.hero__button-item:last-child {
+  margin-right: 0;
+}
+
+.hero__button-item:first-child {
+  margin-left: 0;
+}
+/* END OF SECTION HEADER */

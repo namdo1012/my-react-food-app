@@ -1,82 +1,76 @@
-import React from 'react';
-import Navigation from './components/Navigation/Navigation';
-import OrderOnline from './OrderOnline';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import './App.css';
-class App extends React.Component {
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import "./App.css";
 
-  constructor(props){
-    super(props);
-    this.state = {
-      route: 'signin',
-    };
-  }
-  
-  onRouteChange = (route) => {
+import Gallery from "./Gallery";
+import Home from "./Home";
+import OrderOnline from "./OrderOnline";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+
+class App extends React.Component {
+  state = {
+    route: "signin",
+    login: false
+  };
+
+  onRouteChange = route => {
     this.setState({
       route: route
-    })
-  }
-  render(){
-    const {route} = this.state;
+    });
+  };
 
-    if (route === 'home') {
-        return (
-          <Router>
-            <div className="App">
-                <Navigation />
-                <Switch>
-                  <Route  path="/"
-                          exact 
-                          render={(props) => <Home {...props} onRouteChange={this.onRouteChange} />} />
-                  <Route path="/order" component={OrderOnline} />
-                  <Route path="/menu" component={Menu} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/about" component={About} /> 
-                  <Redirect to="/order"/> {/* Fail: Redirect to order when sign in */}
-                </Switch>
-            </div>
-          </Router>);
-      } 
-      else if (route==='signin'){return <SignIn onRouteChange={this.onRouteChange}></SignIn>}
-      else {return <SignUp onRouteChange={this.onRouteChange}></SignUp>}
-    } 
+  setLogin = newVal =>
+    this.setState({
+      login: newVal
+    });
+
+  render() {
+    const { route, login } = this.state;
+    const { setLogin } = this;
+
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            {/* <AuthRoute exact path="/" component={Home} /> */}
+            {/* <AuthRoute path="/home" component={Home} /> */}
+            {/* <Route
+              path="/signin"
+              component={({ history }) => (
+                <SignIn history={history} setLogin={setLogin} login={login} />
+              )}
+            /> */}
+            {/* <AuthRoute isLogin={login} path="/order" component={OrderOnline} /> */}
+            <Route path="/" exact component={Home} />
+            <Route path="/home" exact component={Home} />
+            <Route path="/gallery" component={Gallery} />
+            <Route path="/order" component={OrderOnline} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={SignIn} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
-const Home = (props) => {
-  return (
-    <div>
-      <h1> Home page </h1>
-      <button onClick={()=>props.onRouteChange('signin')}> Sign out</button>
-    </div>
-  )
-};
+// const Home = ({ history }) => {
+//   return (
+//     <div>
+//       <h1> Home page </h1>
+//       <button onClick={() => history.push("/signin")}> Sign out</button>
+//     </div>
+//   );
+// };
 
-const Contact = () => {
-  return (
-    <div>
-      <h1> Contact page </h1>
-    </div>
-  )
+const AuthRoute = ({ isLogin, ...rest }) => {
+  return isLogin ? <Route {...rest} /> : <Redirect to="/signin" />;
 };
-
-const About = () => {
-  return (
-    <div>
-      <h1> About page </h1>
-    </div>
-  )
-};
-
-const Menu = () => {
-  return (
-    <div>
-      <h1> Menu page </h1>
-    </div>
-  )
-};
-
 
 export default App;
