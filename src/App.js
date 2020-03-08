@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 import Gallery from "./Gallery";
@@ -74,8 +69,8 @@ class App extends React.Component {
   }
 }
 
-const AuthRoute = ({ isLogin, ...rest }) => {
-  return isLogin ? <Route {...rest} /> : <Redirect to="/signin" />;
-};
+// const AuthRoute = ({ isLogin, ...rest }) => {
+//   return isLogin ? <Route {...rest} /> : <Redirect to="/signin" />;
+// };
 
 export default App;

@@ -6,9 +6,9 @@ class Navigation extends React.Component {
   render() {
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <Link to="/home" class="navbar-brand">
           Foodo
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
