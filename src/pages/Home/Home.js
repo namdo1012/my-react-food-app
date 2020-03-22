@@ -6,6 +6,7 @@ import "./Home.css";
 import Quote from "../../components/HomeComponent/Quote/Quote";
 import HomeMeals from "../../components/HomeComponent/HomeMeals/HomeMeals";
 import Footer from "../../components/Footer/Footer";
+import ChatBox from "../../components/ChatBox/ChatBox";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <Quote />
       <HomeMeals />
       <Footer />
+      <ChatBox />
     </>
   );
 }
