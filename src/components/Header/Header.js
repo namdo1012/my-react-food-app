@@ -1,9 +1,9 @@
 import React from "react";
-import Navigation from "./components/Navigation/Navigation";
+import Navigation from "../Navigation/Navigation";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./Header.css";
 
-function Home() {
+function Header() {
   return (
     <>
       <section class="section-header">
@@ -39,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Header;

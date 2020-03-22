@@ -1,5 +1,5 @@
 .order-section {
-  background-image: url(./img/food-background-img.jpg);
+  background-image: url(../../img/food-background-img.jpg);
   /* background-image: linear-gradient(to right bottom, #a4f677, #edeeec); */
   background-size: cover;
 }

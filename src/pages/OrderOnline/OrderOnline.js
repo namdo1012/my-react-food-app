@@ -1,9 +1,10 @@
 import React from "react";
-import SearchBar from "./components/SearchBar/SearchBar";
-import Results from "./components/Results/Results";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import Results from "../../components/Results/Results";
 import { Row, Col } from "react-bootstrap";
 import "./OrderOnline.css";
-import Navigation from "./components/Navigation/Navigation";
+import Navigation from "../../components/Navigation/Navigation";
+
 class OrderOnline extends React.Component {
   constructor(props) {
     super(props);

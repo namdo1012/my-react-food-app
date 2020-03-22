@@ -1,0 +1,29 @@
+/* SECTION STORY */
+.section-story {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../../../img/story-background.jpg);
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-position-y: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story__box {
+  padding: 50px;
+  flex-direction: column;
+  color: white;
+}
+
+.story__title {
+  font-size: 200%;
+  margin-bottom: 50px;
+}
+.story__content {
+  font-size: 16px;
+  text-align: center;
+}
+/* END OF SECTION STORY */

@@ -2,21 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import Gallery from "./Gallery";
-import Home from "./Home";
-import OrderOnline from "./OrderOnline";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import Gallery from "./pages/Gallery/Gallery";
+import Home from "./pages/Home/Home";
+import OrderOnline from "./pages/OrderOnline/OrderOnline";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 class App extends React.Component {
   state = {
     isLogin: false
-  };
-
-  onRouteChange = route => {
-    this.setState({
-      route: route
-    });
   };
 
   setLogin = newVal => {

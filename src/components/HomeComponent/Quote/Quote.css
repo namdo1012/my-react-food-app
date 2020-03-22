@@ -1,0 +1,54 @@
+/* SECTION QUOTE */
+.section-quote {
+  width: 100%;
+  height: 90vh;
+  /* background-color: #82f66ed0; */
+  background: rgb(2, 0, 36);
+  /* background: linear-gradient(
+    to right bottom,
+    rgba(83, 255, 131, 1) 0%,
+    #4ecd34 60%
+  ); */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(83, 255, 131, 0.5) 0%,
+      #4ecd34 60%
+    ),
+    url(../../../img/food-background-img.jpg);
+  background-size: cover;
+  background-position-x: left bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote__box {
+  color: white;
+}
+
+.quote__box blockquote {
+  font-size: 50px;
+  font-weight: 200;
+  line-height: 70px;
+  margin-right: 30px;
+}
+
+.quote__bold {
+  font-weight: 600;
+}
+
+.quote__author {
+  font-size: 25px;
+}
+
+.quote__button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-btn {
+  padding: 10px 45px;
+}
+/* END OF SECTION QUOTE */

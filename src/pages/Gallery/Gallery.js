@@ -1,6 +1,6 @@
 import React from "react";
 import "./Gallery.css";
-import Navigation from "./components/Navigation/Navigation";
+import Navigation from "../../components/Navigation/Navigation";
 
 function Gallery() {
   return (
