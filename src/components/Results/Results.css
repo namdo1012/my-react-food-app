@@ -1,54 +1,55 @@
 .results__list {
-	height: 100vh;
-	border-right: .5px solid #529566;
-	padding: 0;
-	margin-top: 30px;
+  height: 100vh;
+  border-right: 0.5px solid #529566;
+  padding: 0;
+  margin-top: 30px;
 }
 
-.results__link:link, 
+.results__link:link,
 .results__link:visited {
-	border-bottom: .5px solid #529566;
-	transition: all .3s;
+  border-bottom: 0.5px solid #529566;
+  transition: all 0.3s;
+  position: relative;
 }
 
 .results__link:hover {
-	background-color: #F9F5F3;
-    transform: translateY(-2px); 
-    text-decoration: none;
+  background-color: #f9f5f3;
+  transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .results__fig {
-	overflow: hidden;
-	width: 12%;
-	border-radius: 50%;
-	border: 1.5px solid red;
-	height: 66px;
-	margin: 10px;
-	margin-left: 17px;
-	margin-right: 25px;
+  overflow: hidden;
+  width: 12%;
+  border-radius: 50%;
+  border: 1.5px solid red;
+  height: 66px;
+  margin: 10px;
+  margin-left: 17px;
+  margin-right: 25px;
 }
 
 .results__fig img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .results__data {
-	text-transform: uppercase;
-	padding: 10px 5px;
+  text-transform: uppercase;
+  padding: 10px 5px;
 }
 
 .results__name {
-	font-size: 16px;
-	font-weight: 400;
-	color: #529566;
+  font-size: 16px;
+  font-weight: 400;
+  color: #529566;
 }
 
 .results__cooking-time {
-	font-size: 12px;
-	font-weight: 400;
-	color: #968B87;
+  font-size: 12px;
+  font-weight: 400;
+  color: #968b87;
 }
 
 /*.card__img {

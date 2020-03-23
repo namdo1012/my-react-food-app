@@ -4,6 +4,7 @@ import Result from "./Result";
 
 class Results extends React.Component {
   render() {
+    const abc = 0;
     const { results } = this.props;
     return (
       <React.Fragment>

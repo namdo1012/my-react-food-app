@@ -1,0 +1,15 @@
+.like__icon {
+  position: absolute;
+  right: 35px;
+  top: 25px;
+  font-size: 30px;
+  color: red;
+}
+
+.like__icon--outline {
+  fill: red;
+}
+
+.like__icon:hover {
+  transform: scale(1.3);
+}
