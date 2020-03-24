@@ -4,50 +4,35 @@ import "./Like.css";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.likes = [492560];
     this.state = {
-      liked: this.isLike(this.props.item.id)
-      // likes: new Array([])
+      isLiked: this.props.likes.includes(5) ? true : false
     };
-    this.onLike = this.onLike.bind(this);
   }
 
-  onLike = (isLiked, id) => {
-    console.log(isLiked);
-
+  onLike = (itemID, isLiked) => {
     if (isLiked) {
-      // Delete liked item
-      this.setState({ liked: !this.state.liked });
-      this.likes.filter(el => el !== id);
+      // Delete the liked item
+      this.props.deleteLike(itemID);
     } else {
-      // Add new liked item
-      // this.setState(prevState => ({ likes: prevState.likes.push(id) }));
-      this.setState({ liked: !this.state.liked });
-      this.likes.push(id);
-      console.log(this.likes);
+      // Add liked item
+      this.props.addLike(itemID);
     }
-    // console.log("Likes state:", this);
-  };
 
-  isLike = id => {
-    return this.likes.includes(id);
+    // Modefy like icon
+    this.setState({
+      isLiked: !this.state.isLiked
+    });
   };
 
   render() {
     const { item } = this.props;
-    // console.log("This likes state:", this.likes);
-    // console.log("This state:", this.state);
-    console.log("Item:", item);
-    // const isLiked = this.isLike(item.id);
-    // console.log("isLiked, ", isLiked);
-    // const liked = this.props.liked;
+    const itemID = item.id; // ID of current item
+
     return (
-      <div
-        class="like__icon"
-        onClick={() => this.onLike(this.state.liked, item.id)}
-      >
+      <div onClick={() => this.onLike(itemID, this.state.isLiked)}>
         <ion-icon
-          name={!this.state.liked ? "heart-outline" : "heart"}
+          name={!this.state.isLiked ? "heart-outline" : "heart"}
+          class="like__icon"
         ></ion-icon>
       </div>
     );

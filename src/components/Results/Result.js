@@ -5,7 +5,7 @@ class Result extends React.Component {
   render() {
     const { result } = this.props;
     let imgSrc = `https://spoonacular.com/recipeImages/${result.image}`;
-    if (result.title.length > 40) return null;
+    if (result.title.length > 45) return null;
     return (
       <>
         <a
@@ -21,7 +21,13 @@ class Result extends React.Component {
               Ready in minutes: {result.readyInMinutes}'
             </p>
           </div>
-          <Like item={result} />
+
+          <Like
+            item={result}
+            likes={this.props.likes}
+            addLike={this.props.addLike}
+            deleteLike={this.props.deleteLike}
+          />
         </a>
       </>
     );
