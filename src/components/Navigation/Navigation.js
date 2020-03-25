@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import LikeContext from "../../contexts/LikeContext/LikeContext";
 import UserContext from "../../contexts/UserContext";
 
+import { DropdownButton, Dropdown } from "react-bootstrap";
+
 class Navigation extends React.Component {
   render() {
     return (
@@ -33,14 +35,39 @@ class Navigation extends React.Component {
 
           <UserContext.Consumer>
             {({ isLogin, toLogout }) => {
-              return isLogin ? (
+              return true ? (
                 <LikeContext.Consumer>
                   {context => {
                     return (
                       <React.Fragment>
-                        <Link to="/order" class="nav-link">
-                          Favorite({context.likes.length})
-                        </Link>
+                        <DropdownButton
+                          id="dropdown-basic-button"
+                          title={`Favorite (${context.likes.length})`}
+                          drop="left"
+                          variant="success"
+                        >
+                          {/* Need to be a component */}
+                          {context.likes.map((item, i) => {
+                            return (
+                              <Dropdown.Item
+                                href={"#/action-" + { i }}
+                                className="liked-item__box"
+                              >
+                                <>
+                                  <div className="liked-item__img">
+                                    <img
+                                      src={`https://spoonacular.com/recipeImages/${item.image}`}
+                                      alt="Test"
+                                      className="liked-item__img--src"
+                                    />
+                                  </div>
+                                  <div>{item.title}</div>
+                                </>
+                              </Dropdown.Item>
+                            );
+                          })}
+                          {/* Need to be a component */}
+                        </DropdownButton>
                         <button
                           type="button"
                           class="btn btn-outline-secondary  button-signin"

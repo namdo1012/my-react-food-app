@@ -26,10 +26,10 @@ class Like extends React.Component {
 
   render() {
     const { item } = this.props;
-    const itemID = item.id; // ID of current item
+    // const itemID = item.id; // ID of current item
 
     return (
-      <div onClick={() => this.onLike(itemID, this.state.isLiked)}>
+      <div onClick={() => this.onLike(item, this.state.isLiked)}>
         <ion-icon
           name={!this.state.isLiked ? "heart-outline" : "heart"}
           class="like__icon"
