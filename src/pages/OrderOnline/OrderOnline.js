@@ -4,6 +4,8 @@ import Results from "../../components/Results/Results";
 import { Row, Col } from "react-bootstrap";
 import "./OrderOnline.css";
 import Navigation from "../../components/Navigation/Navigation";
+import Cart from "../../components/Cart/Cart";
+import OrderOnlineTask from "../../components/OrderOnlineTask/OrderOnlineTask";
 
 class OrderOnline extends React.Component {
   constructor(props) {
@@ -36,11 +38,15 @@ class OrderOnline extends React.Component {
         </Row>
 
         <Row className="main-page">
-          <Col md={3} className="recipe"></Col>
+          <Col md={3} className="recipe">
+            <OrderOnlineTask />
+          </Col>
           <Col md={6} className="results__list">
             <Results results={this.state.results} />
           </Col>
-          <Col md={3} className="order-list"></Col>
+          <Col md={3} className="order-list">
+            <Cart />
+          </Col>
         </Row>
       </section>
     );

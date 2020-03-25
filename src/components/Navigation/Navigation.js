@@ -36,7 +36,6 @@ class Navigation extends React.Component {
               return isLogin ? (
                 <LikeContext.Consumer>
                   {context => {
-                    console.log("liek", context);
                     return (
                       <Link to="/order" class="nav-link">
                         Favorite({context.likes.length})

@@ -5,7 +5,7 @@ class Result extends React.Component {
   render() {
     const { result } = this.props;
     let imgSrc = `https://spoonacular.com/recipeImages/${result.image}`;
-    if (result.title.length > 45) return null;
+    if (result.title.length > 40) return null;
     return (
       <>
         <a

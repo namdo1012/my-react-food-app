@@ -1,0 +1,78 @@
+.cart__box {
+  width: 100%;
+  height: 100vh;
+  font-size: 15px;
+  color: #529566;
+}
+
+.cart__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid green;
+}
+
+.cart__list {
+  padding: 10px 15px;
+  width: 100%;
+  height: 35%;
+  overflow-y: scroll;
+}
+.cart__item {
+  margin: 0px 2px;
+  padding: 15px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__item:hover {
+  transform: translateY(-3px);
+}
+
+.cart__item:not(:last-child) {
+  border-bottom: 1px solid green;
+}
+
+.cart__total {
+  border-top: 2px solid green;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+  border-bottom: 1px solid green;
+}
+
+.cart__btn-box {
+  text-align: center;
+}
+
+.cart__btn {
+  margin-top: 20px;
+  /* background-color: #28a745; */
+  color: white;
+  text-transform: uppercase;
+  width: 90%;
+  border-radius: 0;
+  border: 0;
+  padding: 10px 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
