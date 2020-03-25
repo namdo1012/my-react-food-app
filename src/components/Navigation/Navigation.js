@@ -32,35 +32,44 @@ class Navigation extends React.Component {
           </ul>
 
           <UserContext.Consumer>
-            {({ isLogin }) => {
+            {({ isLogin, toLogout }) => {
               return isLogin ? (
                 <LikeContext.Consumer>
                   {context => {
                     return (
-                      <Link to="/order" class="nav-link">
-                        Favorite({context.likes.length})
-                      </Link>
+                      <React.Fragment>
+                        <Link to="/order" class="nav-link">
+                          Favorite({context.likes.length})
+                        </Link>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary  button-signin"
+                          onClick={toLogout}
+                        >
+                          <Link to="/signin"> Sign Out</Link>
+                        </button>
+                      </React.Fragment>
                     );
                   }}
                 </LikeContext.Consumer>
-              ) : null;
+              ) : (
+                <div class="navbar-nav mr-0">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary  button-signin"
+                  >
+                    <Link to="/signin"> Sign In</Link>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary button-register"
+                  >
+                    <Link to="/signup"> Register</Link>
+                  </button>
+                </div>
+              );
             }}
           </UserContext.Consumer>
-
-          <div class="navbar-nav mr-0">
-            <button
-              type="button"
-              class="btn btn-outline-secondary  button-signin"
-            >
-              <Link to="/signin"> Sign In</Link>
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary button-register"
-            >
-              <Link to="/signup"> Register</Link>
-            </button>
-          </div>
         </div>
       </nav>
     );
