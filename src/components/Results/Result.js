@@ -22,12 +22,17 @@ class Result extends React.Component {
             </p>
           </div>
 
-          <Like
-            item={result}
-            likes={this.props.likes}
-            addLike={this.props.addLike}
-            deleteLike={this.props.deleteLike}
-          />
+          <div className="result__btn">
+            <div class="add-item__btn">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </div>
+            <Like
+              item={result}
+              likes={this.props.likes}
+              addLike={this.props.addLike}
+              deleteLike={this.props.deleteLike}
+            />
+          </div>
         </a>
       </>
     );
