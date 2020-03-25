@@ -5,13 +5,13 @@ class LikeProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: [1, 2, 3]
+      likes: []
     };
   }
 
   addLike = id => {
     this.setState((state, props) => {
-      const likes = state.likes.concat(state.likes.length + 1);
+      const likes = state.likes.concat(id);
       return {
         likes
       };
@@ -20,8 +20,7 @@ class LikeProvider extends React.Component {
 
   deleteLike = id => {
     this.setState(state => {
-      const item = state.likes.length;
-      const likes = state.likes.filter(val => val !== item);
+      const likes = state.likes.filter(val => val !== id);
       return {
         likes
       };

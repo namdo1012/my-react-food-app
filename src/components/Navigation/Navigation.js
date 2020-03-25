@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
+import LikeContext from "../../contexts/LikeContext/LikeContext";
+import UserContext from "../../contexts/UserContext";
 
 class Navigation extends React.Component {
   render() {
@@ -9,17 +11,6 @@ class Navigation extends React.Component {
         <Link to="/home" class="navbar-brand">
           Foodo
         </Link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
@@ -39,6 +30,24 @@ class Navigation extends React.Component {
               </Link>
             </li>
           </ul>
+
+          <UserContext.Consumer>
+            {({ isLogin }) => {
+              return isLogin ? (
+                <LikeContext.Consumer>
+                  {context => {
+                    console.log("liek", context);
+                    return (
+                      <Link to="/order" class="nav-link">
+                        Favorite({context.likes.length})
+                      </Link>
+                    );
+                  }}
+                </LikeContext.Consumer>
+              ) : null;
+            }}
+          </UserContext.Consumer>
+
           <div class="navbar-nav mr-0">
             <button
               type="button"

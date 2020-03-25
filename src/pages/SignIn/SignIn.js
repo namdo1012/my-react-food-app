@@ -4,8 +4,9 @@ import { Form, Button, Card, Container } from "react-bootstrap";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
 
+import UserContext from "../../contexts/UserContext";
+
 class SignIn extends React.Component {
-  // const onClick = () => setLogin(true);
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +14,6 @@ class SignIn extends React.Component {
       signInPassword: ""
     };
   }
-
-  goHomePage = () => {
-    this.props.setLogin(true);
-    this.props.history.replace("/home");
-  };
 
   onEmailChange = e => {
     this.setState({ signInEmail: e.target.value });
@@ -29,32 +25,27 @@ class SignIn extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    fetch("http://localhost:3000/signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === "success") {
-          this.goHomePage();
-        } else {
-          alert("Password or Email Wrong");
-        }
-      })
-      .catch(err => console.log(err));
+    // fetch("http://localhost:3000/signin", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     email: this.state.signInEmail,
+    //     password: this.state.signInPassword
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     if (data.status === "success") {
+    //       this.goHomePage();
+    //     } else {
+    //       alert("Password or Email Wrong");
+    //     }
+    //   })
+    //   .catch(err => console.log(err));
+    this.props.history.replace("/home");
   };
-
-  // useEffect(() => {
-  //   if (login) {
-  //     history.push("/order");
-  //   }
-  // }, [login]);
 
   render() {
     return (
@@ -96,16 +87,27 @@ class SignIn extends React.Component {
                       onChange={this.onPasswordChange}
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Button
-                      variant="success"
-                      type="submit"
-                      className="w-100 mt-3 text-uppercase"
-                      onClick={this.onSubmit}
-                    >
-                      Login
-                    </Button>
-                  </Form.Group>
+
+                  <UserContext.Consumer>
+                    {({ toLogin }) => {
+                      return (
+                        <Form.Group>
+                          <Button
+                            variant="success"
+                            type="submit"
+                            className="w-100 mt-3 text-uppercase"
+                            onClick={e => {
+                              this.onSubmit(e);
+                              toLogin();
+                            }}
+                          >
+                            Login
+                          </Button>
+                        </Form.Group>
+                      );
+                    }}
+                  </UserContext.Consumer>
+
                   <Form.Group className="d-flex justify-content-center">
                     <p className="mb-0 text-dark">Not registed?</p>
                     <Link to="/signup">Create new account</Link>
