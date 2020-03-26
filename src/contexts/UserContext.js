@@ -7,6 +7,7 @@ class UserProvider extends React.Component {
     super(props);
     this.state = {
       name: "Nam Do",
+      email: "",
       isLogin: false
     };
     this.toLogin = this.toLogin.bind(this);
@@ -21,14 +22,21 @@ class UserProvider extends React.Component {
     this.setState({ isLogin: false });
   };
 
+  getEmail = newEmail => {
+    // debugger;
+    this.setState({ email: newEmail });
+  };
+
   render() {
     return (
       <UserContext.Provider
         value={{
           name: this.state.name,
+          email: this.state.email,
           isLogin: this.state.isLogin,
           toLogin: this.toLogin,
-          toLogout: this.toLogout
+          toLogout: this.toLogout,
+          getEmail: this.getEmail
         }}
       >
         {this.props.children}

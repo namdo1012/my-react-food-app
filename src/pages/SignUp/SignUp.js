@@ -1,6 +1,7 @@
 import React from "react";
 import backgroundImg from "../../img/sign-in-background-1.jpg";
 import { Form, Button, Card, Container } from "react-bootstrap";
+import UserContext from "../../contexts/UserContext";
 // import './SignIn.css';
 
 class SignUp extends React.Component {
@@ -47,15 +48,11 @@ class SignUp extends React.Component {
       .then(response => response.json())
       .then(data => {
         if (data.status === "success") {
-          this.goHomePage();
+          this.props.history.replace("/home");
+          console.log(data);
         } else alert("Please fill in all fields");
       })
       .catch(err => console.log(err));
-  };
-
-  goHomePage = () => {
-    this.props.setLogin(true);
-    this.props.history.replace("/home");
   };
 
   render() {
@@ -110,16 +107,26 @@ class SignUp extends React.Component {
                       onChange={this.onPasswordChange}
                     />
                   </Form.Group>
-                  <div className="text-center d-flex flex-column">
-                    <Button
-                      variant="success"
-                      type="submit"
-                      className="mt-3"
-                      onClick={this.onSubmit}
-                    >
-                      Login
-                    </Button>
-                  </div>
+
+                  <UserContext.Consumer>
+                    {({ toLogin }) => {
+                      return (
+                        <div className="text-center d-flex flex-column">
+                          <Button
+                            variant="success"
+                            type="submit"
+                            className="mt-3"
+                            onClick={e => {
+                              this.onSubmit(e);
+                              toLogin();
+                            }}
+                          >
+                            Login
+                          </Button>
+                        </div>
+                      );
+                    }}
+                  </UserContext.Consumer>
                 </Form>
               </Card.Body>
             </Card>

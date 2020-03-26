@@ -5,6 +5,7 @@ import "./SignIn.css";
 import { Link } from "react-router-dom";
 
 import UserContext from "../../contexts/UserContext";
+import LikeContext from "../../contexts/LikeContext/LikeContext";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -23,28 +24,35 @@ class SignIn extends React.Component {
     this.setState({ signInPassword: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e, getLiked, getEmail) => {
     e.preventDefault();
-    // fetch("http://localhost:3000/signin", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     email: this.state.signInEmail,
-    //     password: this.state.signInPassword
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     if (data.status === "success") {
-    //       this.goHomePage();
-    //     } else {
-    //       alert("Password or Email Wrong");
-    //     }
-    //   })
-    //   .catch(err => console.log(err));
-    this.props.history.replace("/home");
+    fetch("http://localhost:3000/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === "success") {
+          // Get user to the home page
+          this.props.history.replace("/home");
+
+          // Get liked items
+          getLiked(data.message.data.user.likes);
+
+          // Update current user's email
+          getEmail(this.state.signInEmail);
+          console.log(data);
+        } else {
+          alert("Password or Email Wrong");
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -89,21 +97,27 @@ class SignIn extends React.Component {
                   </Form.Group>
 
                   <UserContext.Consumer>
-                    {({ toLogin }) => {
+                    {({ toLogin, getEmail }) => {
                       return (
-                        <Form.Group>
-                          <Button
-                            variant="success"
-                            type="submit"
-                            className="w-100 mt-3 text-uppercase"
-                            onClick={e => {
-                              this.onSubmit(e);
-                              toLogin();
-                            }}
-                          >
-                            Login
-                          </Button>
-                        </Form.Group>
+                        <LikeContext.Consumer>
+                          {({ getLiked }) => {
+                            return (
+                              <Form.Group>
+                                <Button
+                                  variant="success"
+                                  type="submit"
+                                  className="w-100 mt-3 text-uppercase"
+                                  onClick={e => {
+                                    this.onSubmit(e, getLiked, getEmail);
+                                    toLogin();
+                                  }}
+                                >
+                                  Login
+                                </Button>
+                              </Form.Group>
+                            );
+                          }}
+                        </LikeContext.Consumer>
                       );
                     }}
                   </UserContext.Consumer>

@@ -5,17 +5,17 @@ class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: this.props.likes.includes(5) ? true : false
+      isLiked: this.props.likes.includes(this.props.item) ? true : false
     };
   }
 
-  onLike = (itemID, isLiked) => {
+  onLike = (item, isLiked) => {
     if (isLiked) {
       // Delete the liked item
-      this.props.deleteLike(itemID);
+      this.props.deleteLike(item);
     } else {
       // Add liked item
-      this.props.addLike(itemID);
+      this.props.addLike(item);
     }
 
     // Modefy like icon

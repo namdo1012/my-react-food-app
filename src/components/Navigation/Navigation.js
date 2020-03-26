@@ -35,7 +35,7 @@ class Navigation extends React.Component {
 
           <UserContext.Consumer>
             {({ isLogin, toLogout }) => {
-              return true ? (
+              return isLogin ? (
                 <LikeContext.Consumer>
                   {context => {
                     return (
