@@ -19,7 +19,7 @@ function Quote() {
           <Link to="/gallery">
             <button
               type="button"
-              className="btn btn-outline-dark hero__button-item quote-btn"
+              className="btn btn-outline-dark hero__button-item quote-btn app__btn--green"
             >
               Visit Our Gallery
             </button>

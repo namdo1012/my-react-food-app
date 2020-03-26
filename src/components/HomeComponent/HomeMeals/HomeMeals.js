@@ -83,7 +83,7 @@ function HomeMeals() {
       <Link to="/signin">
         <button
           type="button"
-          className="btn btn-outline-dark hero__button-item meal__button"
+          className="btn btn-outline-dark hero__button-item meal__button app__btn--green"
         >
           Sign In Now
         </button>

@@ -45,7 +45,7 @@ function Home() {
         <Link to="/order">
           <button
             type="button"
-            className="btn btn-outline-dark hero__button-item feature__btn"
+            className="btn hero__button-item btn-success feature__btn app__btn--green"
           >
             Go order now!
           </button>

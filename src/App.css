@@ -10,3 +10,9 @@
   background-size: cover;
   background-attachment: fixed;
 }
+
+.app__btn--green:hover,
+.app__btn--green:active {
+  background-color: #218838;
+  border: none;
+}

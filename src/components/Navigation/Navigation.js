@@ -70,7 +70,7 @@ class Navigation extends React.Component {
                         </DropdownButton>
                         <button
                           type="button"
-                          className="btn btn-outline-secondary  button-signin"
+                          className="btn btn-outline-secondary  button-signin app__btn--white"
                           onClick={toLogout}
                         >
                           <Link to="/signin"> Sign Out</Link>
