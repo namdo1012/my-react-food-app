@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer class="footer">
-      <div class="row footer__link">
-        <div class="col-2"></div>
-        <div class="col-4">
-          <ul class="footer-nav">
+    <footer className="footer">
+      <div className="row footer__link">
+        <div className="col-2"></div>
+        <div className="col-4">
+          <ul className="footer-nav">
             <li>
               <Link to="/">About us</Link>
             </li>
@@ -26,8 +26,8 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="col-3">
-          <ul class="social-links">
+        <div className="col-3">
+          <ul className="social-links">
             <li>
               <a href="/">
                 <ion-icon
@@ -62,10 +62,10 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="col-3"></div>
+        <div className="col-3"></div>
       </div>
 
-      <div class="row footer__quote">
+      <div className="row footer__quote">
         <p>“Does it make you feel big to make a little boy cry?”</p>
         <p>Huy Xu</p>
       </div>

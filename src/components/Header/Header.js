@@ -6,18 +6,18 @@ import "./Header.css";
 function Header() {
   return (
     <>
-      <section class="section-header">
+      <section className="section-header">
         <Navigation />
-        <div class="row hero">
-          <p class="hero__title">Foodo</p>
-          <p class="hero__subtitle">Food for life</p>
+        <div className="row hero">
+          <p className="hero__title">Foodo</p>
+          <p className="hero__subtitle">Food for life</p>
         </div>
-        <div class="row hero__button">
-          <div class="col-3"></div>
-          <div class="col-6 hero__button-group">
+        <div className="row hero__button">
+          <div className="col-3"></div>
+          <div className="col-6 hero__button-group">
             <button
               type="button"
-              class="btn btn-outline-dark hero__button-item"
+              className="btn btn-outline-dark hero__button-item"
             >
               <Link to="/order" style={{ color: "white" }}>
                 Foodo Order
@@ -25,14 +25,14 @@ function Header() {
             </button>
             <button
               type="button"
-              class="btn btn-outline-dark hero__button-item"
+              className="btn btn-outline-dark hero__button-item"
             >
               <Link to="/gallery" style={{ color: "white" }}>
                 Our Gallery
               </Link>
             </button>
           </div>
-          <div class="col-3"></div>
+          <div className="col-3"></div>
         </div>
       </section>
     </>

@@ -9,25 +9,25 @@ import { DropdownButton, Dropdown } from "react-bootstrap";
 class Navigation extends React.Component {
   render() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/home" class="navbar-brand">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link to="/home" className="navbar-brand">
           Foodo
         </Link>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-              <Link to="/home" class="nav-link">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto">
+            <li className="nav-item active">
+              <Link to="/home" className="nav-link">
                 Home
               </Link>
             </li>
-            <li class="nav-item">
-              <Link to="/order" class="nav-link">
+            <li className="nav-item">
+              <Link to="/order" className="nav-link">
                 Foodo Order
               </Link>
             </li>
-            <li class="nav-item">
-              <Link to="/gallery" class="nav-link">
+            <li className="nav-item">
+              <Link to="/gallery" className="nav-link">
                 Our Gallery
               </Link>
             </li>
@@ -70,7 +70,7 @@ class Navigation extends React.Component {
                         </DropdownButton>
                         <button
                           type="button"
-                          class="btn btn-outline-secondary  button-signin"
+                          className="btn btn-outline-secondary  button-signin"
                           onClick={toLogout}
                         >
                           <Link to="/signin"> Sign Out</Link>
@@ -80,16 +80,16 @@ class Navigation extends React.Component {
                   }}
                 </LikeContext.Consumer>
               ) : (
-                <div class="navbar-nav mr-0">
+                <div className="navbar-nav mr-0">
                   <button
                     type="button"
-                    class="btn btn-outline-secondary  button-signin"
+                    className="btn btn-outline-secondary  button-signin"
                   >
                     <Link to="/signin"> Sign In</Link>
                   </button>
                   <button
                     type="button"
-                    class="btn btn-outline-secondary button-register"
+                    className="btn btn-outline-secondary button-register"
                   >
                     <Link to="/signup"> Register</Link>
                   </button>

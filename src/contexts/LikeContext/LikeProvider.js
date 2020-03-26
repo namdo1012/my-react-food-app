@@ -11,8 +11,7 @@ class LikeProvider extends React.Component {
 
   componentDidUpdate(prevState) {
     if (JSON.stringify(this.state.likes) !== JSON.stringify(prevState.likes)) {
-      console.log("Fetching data!");
-      console.log("Emai:", this.props.email);
+      // Get liked item from DB
       fetch("http://localhost:3000/updatelikes", {
         method: "PATCH",
         headers: {
@@ -25,10 +24,15 @@ class LikeProvider extends React.Component {
       })
         .then(response => response.json())
         .then(data => {
-          // debugger;
           console.log(data);
-          if (data.status === "success" && data.message.data.user !== null) {
-            console.log(data);
+          if (data.status === "success") {
+            /*
+            NOTE: When start to login to this app, 
+            the email is undefined so it's also need 
+            the command "if data.user !== null", 
+            but it will toggle alert below --> NEED FIX!
+             */
+            console.log("Success getting liked items");
           } else {
             alert("Server have something wrong");
           }
