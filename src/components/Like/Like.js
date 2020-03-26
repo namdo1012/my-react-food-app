@@ -5,7 +5,9 @@ class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: this.props.likes.includes(this.props.item) ? true : false
+      isLiked: this.props.likes.some(el => el.id === this.props.item.id)
+        ? true
+        : false
     };
   }
 
@@ -26,8 +28,6 @@ class Like extends React.Component {
 
   render() {
     const { item } = this.props;
-    // const itemID = item.id; // ID of current item
-
     return (
       <div onClick={() => this.onLike(item, this.state.isLiked)}>
         <ion-icon

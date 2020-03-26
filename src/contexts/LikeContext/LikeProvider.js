@@ -10,8 +10,6 @@ class LikeProvider extends React.Component {
   }
 
   componentDidUpdate(prevState) {
-    // Typical usage (don't forget to compare props):
-    // debugger;
     if (JSON.stringify(this.state.likes) !== JSON.stringify(prevState.likes)) {
       console.log("Fetching data!");
       console.log("Emai:", this.props.email);
@@ -39,18 +37,18 @@ class LikeProvider extends React.Component {
     }
   }
 
-  addLike = id => {
+  addLike = item => {
     this.setState((state, props) => {
-      const likes = state.likes.concat(id);
+      const likes = state.likes.concat(item);
       return {
         likes
       };
     });
   };
 
-  deleteLike = id => {
+  deleteLike = item => {
     this.setState(state => {
-      const likes = state.likes.filter(val => val !== id);
+      const likes = state.likes.filter(val => val.id !== item.id);
       return {
         likes
       };
