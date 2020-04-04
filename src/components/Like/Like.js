@@ -5,9 +5,9 @@ class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLiked: this.props.likes.some(el => el.id === this.props.item.id)
+      isLiked: this.props.likes.some((el) => el.id === this.props.item.id)
         ? true
-        : false
+        : false,
     };
   }
 
@@ -22,7 +22,7 @@ class Like extends React.Component {
 
     // Modefy like icon
     this.setState({
-      isLiked: !this.state.isLiked
+      isLiked: !this.state.isLiked,
     });
   };
 

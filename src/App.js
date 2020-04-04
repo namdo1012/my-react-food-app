@@ -17,9 +17,9 @@ class App extends React.Component {
     return (
       <UserProvider>
         <UserContext.Consumer>
-          {({ email }) => {
+          {({ email, isLogin }) => {
             return (
-              <LikeProvider email={email}>
+              <LikeProvider email={email} isLogin={isLogin}>
                 <Router>
                   <div className="App">
                     <Switch>

@@ -37,7 +37,7 @@ class Navigation extends React.Component {
             {({ isLogin, toLogout }) => {
               return isLogin ? (
                 <LikeContext.Consumer>
-                  {context => {
+                  {(context) => {
                     return (
                       <React.Fragment>
                         <DropdownButton

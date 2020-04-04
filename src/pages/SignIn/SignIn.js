@@ -12,15 +12,15 @@ class SignIn extends React.Component {
     super(props);
     this.state = {
       signInEmail: "",
-      signInPassword: ""
+      signInPassword: "",
     };
   }
 
-  onEmailChange = e => {
+  onEmailChange = (e) => {
     this.setState({ signInEmail: e.target.value });
   };
 
-  onPasswordChange = e => {
+  onPasswordChange = (e) => {
     this.setState({ signInPassword: e.target.value });
   };
 
@@ -29,33 +29,36 @@ class SignIn extends React.Component {
     fetch("http://localhost:3000/signin", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
+        password: this.state.signInPassword,
+      }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data.status === "success") {
           // Get user to the home page
           this.props.history.replace("/home");
 
+          // Update current user's email
+          getEmail(this.state.signInEmail);
+
           // Get liked items
           getLiked(data.message.data.user.likes);
 
-          // Update current user's email
-          getEmail(this.state.signInEmail);
-          console.log(data);
+          // console.log(data);
         } else {
           alert("Password or Email Wrong");
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   render() {
+    console.log(this.state.signInEmail);
+    console.log(this.state.signInPassword);
     return (
       <div>
         <div className="background">
@@ -71,7 +74,7 @@ class SignIn extends React.Component {
               className="pt-4 pb-3"
               style={{
                 borderRadius: "10px",
-                backgroundColor: "rgba(0,0,0,.5)"
+                backgroundColor: "rgba(0,0,0,.5)",
               }}
             >
               <Card.Title className="text-center text-uppercase">
@@ -107,7 +110,7 @@ class SignIn extends React.Component {
                                   variant="success"
                                   type="submit"
                                   className="w-100 mt-3 text-uppercase"
-                                  onClick={e => {
+                                  onClick={(e) => {
                                     this.onSubmit(e, getLiked, getEmail);
                                     toLogin();
                                   }}
